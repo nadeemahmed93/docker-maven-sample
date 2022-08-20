@@ -7,11 +7,14 @@ on:
     branches: [ "master" ]
 
 jobs:
-
-  build:
-
+  setup-environment:
     runs-on: ubuntu-latest
-
+    steps:
+    - name: Setup environemnt variables for build job
+      run: export $APP_ENV="1.0.0"
+  build:
+    runs-on: ubuntu-latest
+    needs: ["setup-environment"]
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
