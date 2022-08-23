@@ -8,7 +8,7 @@ on:
 
 jobs:
   setup-environment:
-    runs-on: ubuntu-latest
+    runs-on: azure-linux-runner
     steps:
     - name: Setup environemnt variables for build job
       run: export APP_ENV="1.0.0"
