@@ -1,4 +1,4 @@
-name: Build Application Pipeline
+name: Docker Image CI
 
 on:
   push:
@@ -8,17 +8,13 @@ on:
 
 jobs:
   setup-environment:
-    runs-on: [self-hosted, X64, Linux]
+    runs-on: ubuntu-latest
     steps:
     - name: Setup environemnt variables for build job
       run: export APP_ENV="1.0.0"
   build:
-    runs-on: [self-hosted, X64, Linux]
+    runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v3
-    - name: Git Clone Repository
-      with:
-        ref: master
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
