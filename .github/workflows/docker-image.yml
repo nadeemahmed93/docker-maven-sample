@@ -13,7 +13,7 @@ jobs:
     - name: Setup environemnt variables for build job
       run: export APP_ENV="1.0.0"
   build:
-    runs-on: self-hosted
+    runs-on: azure-linux-runner
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
