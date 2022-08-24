@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup environemnt variables for build job
-      run: export APP_ENV="1.0.0"
+      run: export APP_ENV="2.0.0"
   build:
     runs-on: [ macOS , self-runner1 ]
     steps:
